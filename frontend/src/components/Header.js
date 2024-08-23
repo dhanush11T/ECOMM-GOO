@@ -1,6 +1,5 @@
 import React, { useContext,useState } from "react";
 import bg2 from "../assest/bg2.png";
-import { LuSearch } from "react-icons/lu";
 import { IoIosCart } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
