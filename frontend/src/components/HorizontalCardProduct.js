@@ -13,9 +13,7 @@ const HorizontalCardProduct = ({category, heading}) => {
     const [loading,setLoading] = useState(true)
     const loadingList = new Array(13).fill(null)
 
-    const [scroll,setScroll] = useState(0)
-    const scrollElement = useRef()
-
+   
 
     const { fetchUserAddToCart } = useContext(Context)
 
@@ -65,7 +63,7 @@ const HorizontalCardProduct = ({category, heading}) => {
                             </div>
                             <div className='p-4 grid w-full gap-2'>
                                 <h2 className='font-medium text-base md:text-lg text-ellipsis line-clamp-1 text-black bg-slate-200 animate-pulse p-1 rounded-full'></h2>
-                                <p className='capitalize text-slate-500 p-1 bg-slate-200 animate-pulse rounded-full'></p>
+                                <p className='capitalize text-slate-500 p-1 bg-slate-200 animate-pulse rounded-full'>s</p>
                                 <div  className='flex gap-3 w-full'>
                                     <p className='text-red-600 font-medium p-1 bg-slate-200 w-full animate-pulse rounded-full'></p>
                                     <p className='text-slate-500 line-through p-1 bg-slate-200 w-full animate-pulse rounded-full'></p>
@@ -80,7 +78,7 @@ const HorizontalCardProduct = ({category, heading}) => {
                 return(
                     <Link to={"product/"+product?._id} id="scard" className='w-full min-w-[290px] md:min-w-[320px] max-w-[280px] md:max-w-[320px] h-38 bg-white rounded-sm shadow flex'>
                         <div className='bg-white-200 h-full p-4 min-w-[140px] md:min-w-[140px]'>
-                            <img id="simage"src={product.productImage[0]} className='object-scale-down h-full hover:scale-110 transition-all'/>
+                            <img id="simage"src={product.productImage[0]} alt="NONE" className='object-scale-down h-full hover:scale-110 transition-all'/>
                         </div>
                         <div className='p-9 grid'>
                             <h2 className='font-large text-base md:text-lg text-ellipsis line-clamp-1 text-black'>{product?.productName}</h2>
