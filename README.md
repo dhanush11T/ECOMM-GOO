@@ -1,4 +1,9 @@
+
 Ecommerce Project
+*******WATCH THE VIDEO FOR PROJECT OVERVIEW*****
+https://github.com/user-attachments/assets/ae20cdd8-ccea-43f4-a5ad-14301ecaf769
+
+
 
 This is a full-stack ecommerce application built using the MERN stack, Tailwind CSS, and Bootstrap. The application allows users to browse products, add them to a cart, and proceed to checkout. It also includes features for user authentication, product management, and order tracking.
 
