@@ -8,10 +8,24 @@ const router = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+// Define allowed origins
+const allowedOrigins = [
+  'https://ecomm-goo-frontend.onrender.com',
+  'http://localhost:3000',
+  // Add other origins as needed
+];
+
 // Middleware
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3000', // Update to use environment variable
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        // Allow requests with no origin (e.g., mobile apps or curl requests)
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
   })
 );
