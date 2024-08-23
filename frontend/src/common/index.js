@@ -1,6 +1,6 @@
 // import updateAddToCartProduct from "../../../backend/controller/user/updateAddToCartProduct";
 
-const backendDomain = "http://localhost:4000";
+const backendDomain = "https://ecomm-goo-back.onrender.com";
 const SummaryApi = {
     signup: {
         url: `${backendDomain}/api/signup`, // Use backticks for template literal
