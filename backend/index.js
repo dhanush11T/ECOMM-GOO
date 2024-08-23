@@ -21,6 +21,12 @@ app.use(cookieParser());
 // Routes
 app.use("/api", router);
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send(`Something went wrong! Error: ${err.message}`);
+});
+
 // Connect to MongoDB and start server
 connectDB()
   .then(() => {
@@ -33,9 +39,3 @@ connectDB()
     console.error("Error connecting to MongoDB:", err.message);
     process.exit(1); // Exit process with failure
   });
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something went wrong!");
-});
