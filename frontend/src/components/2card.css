@@ -1,0 +1,19 @@
+#mmc{
+    box-shadow: 10px 10px 10px  rgba(25, 25, 25, 0.8);
+    /* min-height: 100px; */
+    border-radius: 20px;
+    height: 400px;
+padding-bottom: 20px;
+margin-bottom: 20px;
+}
+#cardd{
+    height: 100px;
+}
+#vbg{
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-right: 5px;
+
+
+    box-shadow: 10px 10px 10px black;;
+}

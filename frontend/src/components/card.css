@@ -1,0 +1,13 @@
+#scard{
+    height: 200px;
+    min-width: 400px;
+    box-shadow: 10px 10px 10px  rgba(25, 25, 25, 0.8);
+    border-radius: 20px;
+}
+#card2{
+    height: 250px;
+}
+#simage{
+    width: 220px;
+
+}

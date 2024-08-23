@@ -1,0 +1,51 @@
+/* Import the background image */
+
+
+/* Apply background image to the entire section */
+#signup {
+    background-image: url('../assest/wallpap.jpg'); /* Use the correct relative path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full window height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+/* #signup { position: relative; overflow: hidden; max-width: 100%; max-height: 100%; line-height: 0; margin: 25px auto; } */
+#text{
+    color:rgb(255, 255, 255);
+    overflow: hidden;
+}
+#pic{
+    color : black;
+}
+
+
+/* Transparent form with glassmorphism effect */
+.glassmorphism-container {
+    background: rgba(159, 155, 155, 0.2); /* Transparent background */
+    border-radius: 20px; /* Rounded corners */
+    backdrop-filter: blur(150px); /* Glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(234, 225, 225, 0.062); /* Optional shadow */
+}
+.glassmorphism-button {
+    background: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
+    backdrop-filter: blur(5px); /* Glass effect */
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 10px;
+    color: #ffffff; /* White text color */
+    font-weight: bold;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .glassmorphism-button:hover {
+    background: rgba(255, 255, 255, 0.5); /* Slightly more opaque on hover */
+    color: #ff0000; /* Change text color on hover */
+  }
