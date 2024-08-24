@@ -6,6 +6,7 @@ const connectDB = require("./config/db");
 const router = require("./routes");
 
 const app = express();
+
 app.use(cors({
     origin: 'https://ecomm-goo-1hbf.vercel.app', // Frontend domain
     credentials: true,
@@ -24,9 +25,7 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+
 // Connect to MongoDB and start server
 connectDB()
   .then(() => {
