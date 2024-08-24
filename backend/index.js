@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 
 // Middleware
 app.use(cors({
-  origin: 'https://ecomm-goo-git-main-dhanush11ts-projects.vercel.app',
+  origin: 'https://ecomm-goo-git-main-dhanush11ts-projects.vercel.app/',
   credentials: true,
 }));
 app.use(express.json());
