@@ -1,6 +1,6 @@
 // import updateAddToCartProduct from "../../../backend/controller/user/updateAddToCartProduct";
 
-const backendDomain = "ecomm-goo.vercel.app";
+const backendDomain = "https://ecomm-goo-dhanush11ts-projects.vercel.app";
 const SummaryApi = {
     signup: {
         url: `${backendDomain}/api/signup`, // Use backticks for template literal
