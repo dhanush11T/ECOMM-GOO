@@ -29,13 +29,13 @@ async function userSignInController(req, res) {
       };
       console.log("Token data:", tokenData);
 
-      const token = jwt.sign(tokenData, "fytfi76o8yfjhng78yo8ughfyj89jb", { expiresIn: '8h' });
+      const token = jwt.sign(tokenData, fytfi76o8yfjhng78yo8ughfyj89jb, { expiresIn: '8h' });
       console.log("Generated token:", token);
 const options = {
   httpOnly: true,
   secure: true, // This should be true since you're using HTTPS on Vercel
   sameSite: "none", // Required for cross-site cookies
-  domain: '.vercel.app', // Use the root domain to cover all subdomains
+  domain: 'ecomm-goo-1hbf.vercel.app', // Use the root domain to cover all subdomains
   path: '/',
   maxAge: 8 * 60 * 60 * 1000 // 8 hours
 };
