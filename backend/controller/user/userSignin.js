@@ -32,13 +32,13 @@ async function userSignInController(req, res) {
       const token = jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: '8h' });
       console.log("Generated token:", token);
 
-     const options = {
+    const options = {
     httpOnly: true,
     secure: true,
     sameSite: "none",
-    domain: "fsvideo.vercel.app", // No "https://"
-    path: '/', // Ensure the cookie is available across all routes
-    maxAge: 8 * 60 * 60 * 1000 // Set a reasonable expiry time, e.g., 8 hours
+    domain: "fsvideo.vercel.app",
+    path: '/',
+    maxAge: 8 * 60 * 60 * 1000 // 8 hours
 };
 
 res.cookie("token", token, tokenOption).status(200).json({
