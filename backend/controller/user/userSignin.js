@@ -33,17 +33,17 @@ async function userSignInController(req, res) {
       console.log("Generated token:", token);
 
       const tokenOption = {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production', // Ensure this is set correctly
-        sameSite: 'Strict', // Adjust if necessary
-      };
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax', // Adjusted for better cross-site compatibility
+};
 
-      res.cookie("token", token, tokenOption).status(200).json({
-        message: "Login successful",
-        data: token,
-        success: true,
-        error: false,
-      });
+res.cookie("token", token, tokenOption).status(200).json({
+    message: "Login successful",
+    data: token,
+    success: true,
+    error: false
+});
 
     } else {
       return res.status(401).json({ message: "Incorrect password", error: true, success: false });
