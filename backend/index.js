@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 4000;
 const allowedOrigins = [
   'https://ecomm-goo-frontend.onrender.com',
   'http://localhost:3000',
+  'https://66c964adff6a241c910f130b--jocular-dusk-339aa0.netlify.app',
   // Add other origins as needed
 ];
 
