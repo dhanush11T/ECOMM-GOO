@@ -1,14 +1,7 @@
 async function userLogout(req, res) {
     try {
         // Ensure the cookie options match those used when setting the cookie
-        const options = {
-            httpOnly: true,
-            secure: true, // Ensure this matches how the cookie was originally set
-            sameSite: "none", // This should match the setting in your login controller
-            domain: "ecomm-goo-1hbf.vercel.app", // Or match the exact domain, or omit if it wasn't set
-            path: '/' // This should match the setting in your login controller
-        };
-
+        
         res.clearCookie("token", options); // Clear the token cookie
 
         res.status(200).json({
