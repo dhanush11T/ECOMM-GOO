@@ -8,8 +8,7 @@ async function connectDB() {
       throw new Error("MONGODB_URI is not defined in environment variables");
     }
     await mongoose.connect(dbUri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+      // Remove deprecated options
     });
     console.log("MongoDB connected successfully");
   } catch (err) {
