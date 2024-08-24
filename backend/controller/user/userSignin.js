@@ -35,8 +35,8 @@ async function userSignInController(req, res) {
     const options = {
     httpOnly: true,
     secure: true, // Ensure this is set to true if you're using HTTPS in production
-    sameSite: "none", // Needed for cross-site cookies
-    domain: "fsvideo.vercel.app", // Match this with your frontend's domain, without "https://"
+    sameSite: 'none', // Needed for cross-site cookies
+    domain: "ecomm-goo-1hbf.vercel.app", // Match this with your frontend's domain, without "https://"
     path: '/', // Ensure this path is correct
     maxAge: 8 * 60 * 60 * 1000 // 8 hours
 };
