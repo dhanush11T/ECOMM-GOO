@@ -36,6 +36,7 @@ async function userSignInController(req, res) {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'None', // Adjusted for better cross-site compatibility
+         maxAge: 8 * 60 * 60 * 1000
 };
 
 res.cookie("token", token, tokenOption).status(200).json({
