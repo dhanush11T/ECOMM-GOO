@@ -5,7 +5,7 @@ async function userLogout(req, res) {
             httpOnly: true,
             secure: true, // Ensure this matches how the cookie was originally set
             sameSite: "none", // This should match the setting in your login controller
-            domain: "fsvideo.vercel.app", // Or match the exact domain, or omit if it wasn't set
+            domain: "ecomm-goo-1hbf.vercel.app", // Or match the exact domain, or omit if it wasn't set
             path: '/' // This should match the setting in your login controller
         };
 
