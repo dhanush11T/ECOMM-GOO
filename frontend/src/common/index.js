@@ -1,6 +1,6 @@
 // import updateAddToCartProduct from "../../../backend/controller/user/updateAddToCartProduct";
 
-const backendDomain = "https://66c96738d921d37d917a7ecf--regal-twilight-d650f7.netlify.app";
+const backendDomain = "ecomm-goo.vercel.app";
 const SummaryApi = {
     signup: {
         url: `${backendDomain}/api/signup`, // Use backticks for template literal
