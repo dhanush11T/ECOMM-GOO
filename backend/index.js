@@ -9,10 +9,23 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 // Middleware to set CORS headers manually
+const allowedOrigins = [
+    'https://ecomm-goo-1hbf.vercel.app',
+    'https://ecomm-goo-git-main-dhanush11ts-projects.vercel.app',
+    // Add any other domains if needed
+];
+
 app.use(cors({
-  origin: 'https://ecomm-goo-1hbf.vercel.app', // Allow your frontend URL
-  credentials: true, // Allow cookies to be sent
+    origin: function (origin, callback) {
+        if (allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 }));
+
 
 app.use(express.json());
 app.use(cookieParser());
