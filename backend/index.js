@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 4000;
 
 // Middleware
 app.use(cors({
-  origin: 'ecomm-goo-1hbf.vercel.app/',
+  origin: 'https://ecomm-goo-git-main-dhanush11ts-projects.vercel.app',
   credentials: true,
 }));
 app.use(express.json());
