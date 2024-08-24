@@ -29,37 +29,34 @@ async function userSignInController(req, res) {
       };
       console.log("Token data:", tokenData);
 
-      const token = jwt.sign(tokenData, "fytfi76o8yfjhng78yo8ughfyj89jb", { expiresIn: '8h' });
+      const token = jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: '8h' });
       console.log("Generated token:", token);
-const options = {
-  httpOnly: true,
-  secure: true, // This should be true since you're using HTTPS on Vercel
-  sameSite: "none", // Required for cross-site cookies
-  domain: 'ecomm-goo-1hbf.vercel.app', // Use the root domain to cover all subdomains
-  path: '/',
-  maxAge: 8 * 60 * 60 * 1000 // 8 hours
-};
 
-res.cookie("token", token, options).status(200).json({
-  message: "Login successful",
-  data: token,
-  success: true,
-  error: false
-});
-res.cookie("token", token, options).status(200).json({
-    message: "Login successful",
-    data: token,
-    success: true,
-    error: false
-});
+      const options = {
+        httpOnly: true,
+        secure: true, // Ensure this matches your production environment
+        sameSite: "none",
+        domain: "fsvideo.vercel.app",
+        path: '/',
+        maxAge: 8 * 60 * 60 * 1000 // 8 hours
+      };
+
+      // Ensure only one response is sent
+      res.cookie("token", token, options);
+      return res.status(200).json({
+        message: "Login successful",
+        data: token,
+        success: true,
+        error: false
+      });
 
     } else {
       return res.status(401).json({ message: "Incorrect password", error: true, success: false });
     }
 
   } catch (err) {
-    console.error("Login error:", err); // Log the detailed error
-    res.status(500).json({
+    console.error("Login error:", err);
+    return res.status(500).json({
       message: err.message || "Internal Server Error",
       error: true,
       success: false,
