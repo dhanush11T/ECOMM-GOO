@@ -29,7 +29,7 @@ async function userSignInController(req, res) {
       };
       console.log("Token data:", tokenData);
 
-      const token = jwt.sign(tokenData, fytfi76o8yfjhng78yo8ughfyj89jb, { expiresIn: '8h' });
+      const token = jwt.sign(tokenData, "fytfi76o8yfjhng78yo8ughfyj89jb", { expiresIn: '8h' });
       console.log("Generated token:", token);
 const options = {
   httpOnly: true,
