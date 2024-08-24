@@ -35,7 +35,7 @@ async function userSignInController(req, res) {
       const options = {
         httpOnly: true,
         secure: true,
-        sameSite: "none",
+        sameSite: 'none',
         domain: "fsvideo.vercel.app",
         path: '/',
         maxAge: 8 * 60 * 60 * 1000 // 8 hours
