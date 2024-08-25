@@ -33,10 +33,10 @@ console.log("Token Secret Key:", process.env.TOKEN_SECRET_KEY);
       console.log("Generated token:", token);
 
       const options = {
-  httpOnly: true,
-  secure: process.env.NODE_ENV === 'production', // true in production for HTTPS
-  sameSite: "none", // or "lax" depending on your needs
-  domain: process.env.FRONTEND_URL.replace(/^https?:\/\//, '').replace(/\/$/, ''), // Extract domain from URL
+  httpOnly: true, // Helps prevent client-side access
+  secure: process.env.NODE_ENV === 'production', // Use HTTPS in production
+  sameSite: 'none', // Required for cross-site cookies
+  domain: 'ecomm-goo-1hbf.vercel.app', // Match your frontend domain
   path: '/',
   maxAge: 8 * 60 * 60 * 1000 // 8 hours
 };
