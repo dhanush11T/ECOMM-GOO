@@ -34,12 +34,10 @@ async function userSignInController(req, res) {
 
      const options = {
         httpOnly: true,
-        secure: true, // Set to true in production if using HTTPS
+        secure: true, 
         sameSite: "none",
 
-        // Adjust domain based on your deployment scenario
         domain: ( // Choose one based on your scenario
-          // Scenario 1: Vercel Subdomain Deployment
           process.env.VERCEL_ENV === 'production' ? 'vercel.app' : undefined
         ) || (
           // Scenario 2: Custom Domain Deployment
