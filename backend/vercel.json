@@ -1,7 +1,7 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/*.js", "use": "@vercel/node" } // Assuming your backend functions are in the api directory
+    { "src": "api/*.js", "use": "@vercel/node" } 
   ],
   "routes": [
     {
