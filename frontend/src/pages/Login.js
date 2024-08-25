@@ -40,7 +40,16 @@ const Login = () => {
       });
 
       if (!dataResponse.ok) {
-        throw new Error("Failed to login");
+         const errorData = await dataResponse.json();
+
+      if (errorData.message.includes("cookie")) {
+        // Handle cookie-specific error
+        toast.error("Cookie error: " + errorData.message);
+      } else {
+        // Handle other errors
+        toast.error("Failed to login");
+      }
+      
       }
 
       const dataApi = await dataResponse.json();
