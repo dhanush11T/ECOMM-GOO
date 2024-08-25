@@ -35,7 +35,7 @@ console.log("Token Secret Key:", process.env.TOKEN_SECRET_KEY);
       const options = {
   httpOnly: true, // Helps prevent client-side access
   secure: process.env.NODE_ENV === 'production', // Use HTTPS in production
-  sameSite: 'none', // Required for cross-site cookies
+  sameSite: 'Lax', // Required for cross-site cookies
   domain: 'ecomm-goo-1hbf.vercel.app', // Match your frontend domain
   path: '/',
   maxAge: 8 * 60 * 60 * 1000 // 8 hours
