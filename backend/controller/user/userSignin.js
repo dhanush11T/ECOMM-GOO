@@ -20,13 +20,17 @@ async function userSignInController(req, res) {
     }
 
     const checkPassword = await bcrypt.compare(password, user.password);
+    console.log("Password check result:", checkPassword);
+
     if (checkPassword) {
       const tokenData = {
         _id: user._id,
         email: user.email,
       };
+      console.log("Token data:", tokenData);
 
       const token = jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: '8h' });
+      console.log("Generated token:", token);
 
       const options = {
         httpOnly: true,
@@ -36,6 +40,7 @@ async function userSignInController(req, res) {
         maxAge: 8 * 60 * 60 * 1000 // 8 hours
       };
 
+      // Ensure only one response is sent
       res.cookie("token", token, options);
       return res.status(200).json({
         message: "Login successful",
