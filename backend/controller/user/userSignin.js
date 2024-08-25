@@ -33,13 +33,13 @@ async function userSignInController(req, res) {
       console.log("Generated token:", token);
 
       const options = {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production', // secure true in production
-        sameSite: "none",
-        domain: 'ecomm-goo-1hbf.vercel.app', // Use your specific domain or subdomain
-        path: '/',
-        maxAge: 8 * 60 * 60 * 1000 // 8 hours
-      };
+  httpOnly: true,
+  secure: process.env.NODE_ENV === 'production', // true in production for HTTPS
+  sameSite: "none", // or "lax" depending on your needs
+  domain: process.env.FRONTEND_URL.replace(/^https?:\/\//, '').replace(/\/$/, ''), // Extract domain from URL
+  path: '/',
+  maxAge: 8 * 60 * 60 * 1000 // 8 hours
+};
 
       // Ensure only one response is sent
       res.cookie("token", token, options);
