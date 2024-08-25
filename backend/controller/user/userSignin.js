@@ -20,34 +20,29 @@ async function userSignInController(req, res) {
     }
 
     const checkPassword = await bcrypt.compare(password, user.password);
-    console.log("Password check result:", checkPassword);
-
     if (checkPassword) {
       const tokenData = {
         _id: user._id,
         email: user.email,
       };
-      console.log("Token data:", tokenData);
 
       const token = jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: '8h' });
-      console.log("Generated token:", token);
 
-    const options = {
-  httpOnly: true,
-  secure: process.env.NODE_ENV === 'production', // secure true in production
-  sameSite: "none",
-  path: '/',
-  maxAge: 8 * 60 * 60 * 1000 // 8 hours
-};
+      const options = {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production', // secure true in production
+        sameSite: "none",
+        path: '/',
+        maxAge: 8 * 60 * 60 * 1000 // 8 hours
+      };
 
-// Ensure only one response is sent
-res.cookie("token", token, options);
-return res.status(200).json({
-  message: "Login successful",
-  data: token,
-  success: true,
-  error: false
-});
+      res.cookie("token", token, options);
+      return res.status(200).json({
+        message: "Login successful",
+        data: token,
+        success: true,
+        error: false
+      });
 
     } else {
       return res.status(401).json({ message: "Incorrect password", error: true, success: false });
