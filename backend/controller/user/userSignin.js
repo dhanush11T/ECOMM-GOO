@@ -28,7 +28,7 @@ async function userSignInController(req, res) {
         email: user.email,
       };
       console.log("Token data:", tokenData);
-
+console.log("Token Secret Key:", process.env.TOKEN_SECRET_KEY);
       const token = jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: '8h' });
       console.log("Generated token:", token);
 
@@ -40,6 +40,7 @@ async function userSignInController(req, res) {
   path: '/',
   maxAge: 8 * 60 * 60 * 1000 // 8 hours
 };
+      
 
       // Ensure only one response is sent
       res.cookie("token", token, options);
