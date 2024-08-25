@@ -28,21 +28,20 @@ async function userSignInController(req, res) {
         email: user.email,
       };
       console.log("Token data:", tokenData);
-console.log("Token Secret Key:", process.env.TOKEN_SECRET_KEY);
+      console.log("Token Secret Key:", process.env.TOKEN_SECRET_KEY);
       const token = jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: '8h' });
       console.log("Generated token:", token);
 
       const options = {
-  httpOnly: true, // Helps prevent client-side access
-  secure: process.env.NODE_ENV === 'production', // Use HTTPS in production
-  same_site: 'None', // Required for cross-site cookies
-  domain: 'ecomm-goo-1hbf.vercel.app', // Match your frontend domain
-  path: '/',
-  maxAge: 8 * 60 * 60 * 1000 // 8 hours
-};
-      
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'None',
+        domain: 'ecomm-goo-1hbf.vercel.app',
+        path: '/',
+        maxAge: 8 * 60 * 60 * 1000 // 8 hours
+      };
 
-      // Ensure only one response is sent
+      console.log("Cookie options:", options);
       res.cookie("token", token, options);
       return res.status(200).json({
         message: "Login successful",
