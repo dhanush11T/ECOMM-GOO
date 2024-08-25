@@ -32,11 +32,21 @@ async function userSignInController(req, res) {
       const token = jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: '8h' });
       console.log("Generated token:", token);
 
-      const options = {
+     const options = {
         httpOnly: true,
-        secure: true, // Ensure this matches your production environment
+        secure: true, // Set to true in production if using HTTPS
         sameSite: "none",
-        domain: "fsvideo.vercel.app",
+
+        // Adjust domain based on your deployment scenario
+        domain: ( // Choose one based on your scenario
+          // Scenario 1: Vercel Subdomain Deployment
+          process.env.VERCEL_ENV === 'production' ? 'vercel.app' : undefined
+        ) || (
+          // Scenario 2: Custom Domain Deployment
+          // Replace with your actual custom domain if using one
+          'ecomm-goo-1hbf.vercel.app'
+        ),
+
         path: '/',
         maxAge: 8 * 60 * 60 * 1000 // 8 hours
       };
